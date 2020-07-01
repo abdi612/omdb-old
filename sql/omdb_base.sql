@@ -446,6 +446,11 @@ ALTER TABLE `movies`
 ALTER TABLE `multimedia`
   ADD CONSTRAINT `multimedia_ibfk_1` FOREIGN KEY (`movieId`) REFERENCES `movies` (`id`);
 
+-- Constraints for table `producer`
+--
+ALTER TABLE `producer`
+  ADD CONSTRAINT `producer_ibfk_1` FOREIGN KEY (`personId`) REFERENCES `person` (`id`);
+  
 --
 -- Constraints for table `writer`
 --
