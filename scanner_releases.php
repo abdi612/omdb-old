@@ -1,57 +1,76 @@
 <?php
 
   $nav_selected = "SCANNER";
-  $left_buttons = "YES";
-  $left_selected = "Movies";
+  $left_buttons = "No";
+  $left_selected = "";
 
   include("./nav.php");
   global $db;
 
   ?>
 
+<style>
+    #title {
+        text-align: center;
+        color: darkgoldenrod;
+    }
+ 
+    
+</style>
 
 <div class="right-content">
     <div class="container">
-
-      <h3 style = "color: #01B0F1;">Popular Movies</h3>
-
-        <h3><img src="images/movie_list.png" style="max-height: 35px;" />Movie Lists</h3>
-
+    <h2 id="title">Movies List</h2><br>
+    
         <table id="info" cellpadding="0" cellspacing="0" border="0"
             class="datatable table table-striped table-bordered datatable-style table-hover"
             width="100%" style="width: 100px;">
               <thead>
                 <tr id="table-first-row">
-                        <th>Native Name</th>
+                        <th>id</th>
+                        <th>Local Name</th>
                         <th>English Name</th>
                         <th>Year</th>
+                        <th>Language</th>
+                        <th>Country</th>
+                        <th>Lead Actor</th>
+                        <th>Lead Actress</th>
+                        <th>Director</th>
+                        <th>Producer</th>
+                        <th>Writer</th>
+                        <th>Genre</th>
+                        <th>Poster</th>
                         
                 </tr>
               </thead>
 
-              <tfoot>
-                <tr>
-                        <th>Native Name</th>
-                        <th>English Name</th>
-                        <th>Year</th>
-                       
-                </tr>
-              </tfoot>
+
 
               <tbody>
 
               <?php
 
-$sql = "SELECT * from movies;";
+$sql = "SELECT * FROM vmoviesinfo;";
 $result = $db->query($sql);
 
                 if ($result->num_rows > 0) {
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         echo '<tr>
-                                <td>'.$row["NativeName"].'</td>
-                                <td>'.$row["EnglishName"].' </span> </td>
-                                <td>'.$row["Year"].'</td>
+            
+                        <th>'.$row["id"].'</th>
+                        <th>'.$row["local_name"].'</th>
+                        <th>'.$row["english_name"].'</th>
+                        <th>'.$row["release_year"].'</th>
+                        <th>'.$row["language"].'</th>
+                        <th>'.$row["country"].'</th>
+                        <th>'.$row["LeadActor"].'</th>
+                        <th>'.$row["LeadActress"].'</th>
+                        <th>'.$row["Director"].'</th>
+                        <th>'.$row["Producer"].'</th>
+                        <th>'.$row["Writer"].'</th>
+                        <th>'.$row["genre"].'</th>
+                        <th><img src="images/'.$row["poster"].'"></th>
                      
                             </tr>';
                     }//end while
