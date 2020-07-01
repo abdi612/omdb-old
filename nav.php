@@ -40,7 +40,7 @@
               <br/>OMDB</li>
             </a>
 
-            <a href="scanner.php">
+            <a href="scanner_releases.php">
               <li <?php if($nav_selected == "SCANNER"){ echo 'class="current-page"'; } ?>>
                 <img src="./images/movies2.png">
                 <br/>Movies</li>
